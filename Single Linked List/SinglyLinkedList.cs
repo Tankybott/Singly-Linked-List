@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 
-public class SingleLinkedList<T> : ICollection<T>
+public class SinglyLinkedList<T> : ICollection<T>
 {
     private Node? _head;
     private Node? _tail;
     private int _count;
 
-    public SingleLinkedList() { }
+    public SinglyLinkedList() { }
 
-    public SingleLinkedList(IEnumerable<T> collection)
+    public SinglyLinkedList(IEnumerable<T> collection)
     {
-        if(collection == null) throw new ArgumentNullException("list");
-        foreach (var item in collection)
+		ArgumentNullException.ThrowIfNull(collection);
+		foreach (var item in collection)
         {
             Add(item);
         }
@@ -57,7 +57,7 @@ public class SingleLinkedList<T> : ICollection<T>
 
         if (_tail == null)
         {
-            Node currentTail = getTail();
+            Node currentTail = GetTail();
             currentTail.Next = newNode;
             _tail = newNode;
         }
@@ -167,7 +167,7 @@ public class SingleLinkedList<T> : ICollection<T>
         // if tail was destroyed
         if (_tail == null)
         {
-            _tail = getTail();
+            _tail = GetTail();
         }
 
         // Deleting reference to deleted tail from Node standing before tail
@@ -203,7 +203,7 @@ public class SingleLinkedList<T> : ICollection<T>
 
         if (_tail == null)
         {
-            Node? currentTail = getTail();
+            Node? currentTail = GetTail();
             return currentTail.Item!;
         }
 
@@ -238,14 +238,11 @@ public class SingleLinkedList<T> : ICollection<T>
     /// Beacuse List is working on reference type, and making operations on list that is merged to targeted list may broke it functionality, so it has to be cleared
     /// </summary>
     /// <param name="list">The list to merge into the current list.</param>
-    public void Merge(SingleLinkedList<T> list)
+    public void Merge(SinglyLinkedList<T> list)
     {
-        if (list == null) 
-        {
-            throw new ArgumentNullException(nameof(list));
-        }
+		ArgumentNullException.ThrowIfNull(list);
 
-        if (list._head == null)
+		if (list._head == null)
         {
             return;
         }
@@ -254,14 +251,14 @@ public class SingleLinkedList<T> : ICollection<T>
         {
             _head = list._head;
             _tail = list._tail;
-            _count = list.Count();
+            _count = list.Count;
             list.Clear();
         }
         else
         {
             _tail!.Next = list._head;
             _tail = list._tail;
-            _count += list.Count();
+            _count += list.Count;
             list.Clear();
         }
     }
@@ -289,12 +286,9 @@ public class SingleLinkedList<T> : ICollection<T>
 
     public void CopyTo(T[] array, int arrayIndex)
     {
-        if (array == null)
-        {
-            throw new ArgumentNullException(nameof(array));
-        }
+		ArgumentNullException.ThrowIfNull(array);
 
-        if (arrayIndex < 0)
+		if (arrayIndex < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(arrayIndex), "Index cannot be negative.");
         }
@@ -335,7 +329,7 @@ public class SingleLinkedList<T> : ICollection<T>
 
     #region Helper Methods
 
-    private Node getTail()
+    private Node GetTail()
     {
         Node? current = _head;
         while (current!.Next != null)

@@ -4,13 +4,13 @@ using System.Linq;
 namespace Single_Linked_List_Tests
 {
     [TestFixture]
-    public class SingleLinkedListTests
+    public class SinglyLinkedListTests
     {
         #region ConstructorTests;
         [Test]
         public void Constructor_ShallThrowAnException_IfArgumentIsNull()
         {
-            Assert.Throws<ArgumentNullException>(() => new SingleLinkedList<int>(null));
+            Assert.Throws<ArgumentNullException>(() => new SinglyLinkedList<int>(null));
         }
 
         [Test]
@@ -18,7 +18,7 @@ namespace Single_Linked_List_Tests
         {
             var inputArray = new int[] { 1, 2, 3, 4, 5 };
 
-            var list = new SingleLinkedList<int>(inputArray);
+            var list = new SinglyLinkedList<int>(inputArray);
 
             for (int i = 0; i < inputArray.Length; i++)
             {
@@ -31,7 +31,7 @@ namespace Single_Linked_List_Tests
         {
             var inputArray = new int[] { 1, 2, 3, 4, 5 };
 
-            var list = new SingleLinkedList<int>(inputArray);
+            var list = new SinglyLinkedList<int>(inputArray);
 
             Assert.That(list.Count, Is.EqualTo(inputArray.Length));
         }
@@ -41,7 +41,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Add_FirstItemShallBe2_IfAdded2()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             singleLinkedList.Add(2);
 
@@ -51,7 +51,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Add_FirstItemShallBeHello_IfAddedHello()
         {
-            var singleLinkedList = new SingleLinkedList<string>();
+            var singleLinkedList = new SinglyLinkedList<string>();
 
             singleLinkedList.Add("Hello");
 
@@ -61,7 +61,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Add_ListShallHaveProperCount_IfAddedItemToList()
         {
-            var singleLinkedList = new SingleLinkedList<int>() { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int>() { 1, 2, 3 };
 
             singleLinkedList.Add(2);
 
@@ -72,7 +72,7 @@ namespace Single_Linked_List_Tests
         #region AddToFrontTests
         public void AddToFront_FirstItemShallBe3_IfAdded3ToFront()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             singleLinkedList.AddToFront(3);
 
@@ -82,7 +82,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void AddToFront_FirstItemShallBeWorld_IfAddedWorldToFront()
         {
-            var singleLinkedList = new SingleLinkedList<string>();
+            var singleLinkedList = new SinglyLinkedList<string>();
 
             singleLinkedList.AddToFront("World");
 
@@ -92,7 +92,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void AddToFront_ListShallHaveProperCount_IfAddedItemToFront()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             singleLinkedList.AddToFront(0);
 
@@ -102,7 +102,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void AddToFront_FirstItemShallBe0_IfAdded0ToFrontAfterAdding1()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             singleLinkedList.Add(1);
             singleLinkedList.AddToFront(0);
@@ -113,7 +113,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void AddToFront_FirstItemShallBe0_IfAddedToNotEmptyList()
         {
-            var singleLinkedList = new SingleLinkedList<int>() { 1, 2, 4 };
+            var singleLinkedList = new SinglyLinkedList<int>() { 1, 2, 4 };
 
             singleLinkedList.AddToFront(0);
 
@@ -125,7 +125,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void AddToEnd_FirstItemShallBe3_IfAdded3ToEnd()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             singleLinkedList.AddToEnd(3);
 
@@ -135,7 +135,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void AddToEnd_FirstItemShallBeHello_IfAddedHelloToEnd()
         {
-            var singleLinkedList = new SingleLinkedList<string>();
+            var singleLinkedList = new SinglyLinkedList<string>();
 
             singleLinkedList.AddToEnd("Hello");
 
@@ -145,7 +145,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void AddToEnd_ListShallHaveProperCount_IfAddedItemToEnd()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             singleLinkedList.AddToEnd(4);
 
@@ -156,7 +156,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void AddToEnd_FirstItemShallBe0_IfAddedToNotEmptyList()
         {
-            var singleLinkedList = new SingleLinkedList<int>() { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int>() { 1, 2, 3 };
 
             singleLinkedList.AddToEnd(0);
 
@@ -166,7 +166,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void AddToEnd_ListShallKeepProperLastItem_IfAddedToEndMultipeTimes()
         {
-            var singleLinkedList = new SingleLinkedList<int>() { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int>() { 1, 2, 3 };
 
             singleLinkedList.AddToEnd(5);
             singleLinkedList.AddToEnd(3);
@@ -181,7 +181,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_ReturnsFalse_IfListIsEmpty()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             var result = singleLinkedList.Remove(1);
 
@@ -191,7 +191,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_ReturnsFalse_IfItemNotFound()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.Remove(4);
 
@@ -201,7 +201,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_ReturnsTrue_IfFirstItemIsRemoved()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.Remove(1);
 
@@ -211,7 +211,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_FirstItemShouldBe2_AfterRemovingFirstItem()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             singleLinkedList.Remove(1);
 
@@ -221,7 +221,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_ReturnsTrue_IfLastItemIsRemoved()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.Remove(3);
 
@@ -231,7 +231,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_LastItemShouldBe2_AfterRemovingLastItem()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             singleLinkedList.Remove(3);
 
@@ -241,7 +241,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_ReturnsTrue_IfMiddleItemIsRemoved()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.Remove(2);
 
@@ -251,7 +251,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_SecondItemShouldBe3_AfterRemoving2()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3, 4 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3, 4 };
 
             singleLinkedList.Remove(2);
 
@@ -261,7 +261,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_DecreasesCount_IfItemIsRemoved()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             singleLinkedList.Remove(2);
 
@@ -271,7 +271,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_ReturnsTrue_IfOnlyItemIsRemoved()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1 };
 
             var result = singleLinkedList.Remove(1);
 
@@ -281,7 +281,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_CountShouldBeZero_AfterRemovingOnlyItem()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1 };
 
             singleLinkedList.Remove(1);
 
@@ -291,7 +291,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_PeekFirstThrowsException_WhenPeekingEmptyList()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1 };
 
             singleLinkedList.Remove(1);
 
@@ -301,7 +301,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_ReturnsTrue_IfFirstStringItemIsRemoved()
         {
-            var singleLinkedList = new SingleLinkedList<string> { "Hello", "World" };
+            var singleLinkedList = new SinglyLinkedList<string> { "Hello", "World" };
 
             var result = singleLinkedList.Remove("Hello");
 
@@ -311,7 +311,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_FirstStringItemShouldBeWorld_AfterRemovingFirstStringItem()
         {
-            var singleLinkedList = new SingleLinkedList<string> { "Hello", "World" };
+            var singleLinkedList = new SinglyLinkedList<string> { "Hello", "World" };
 
             singleLinkedList.Remove("Hello");
 
@@ -321,7 +321,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Remove_DecreasesCount_IfStringItemIsRemoved()
         {
-            var singleLinkedList = new SingleLinkedList<string> { "Hello", "World" };
+            var singleLinkedList = new SinglyLinkedList<string> { "Hello", "World" };
 
             singleLinkedList.Remove("Hello");
 
@@ -334,7 +334,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopFirst_ThrowsInvalidOperationException_WhenListIsEmpty()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             Assert.Throws<InvalidOperationException>(() => singleLinkedList.PopFirst());
         }
@@ -342,7 +342,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopFirst_ReturnsFirstItem_WhenListContainsOneItem()
         {
-            var singleLinkedList = new SingleLinkedList<int>() { 42 };
+            var singleLinkedList = new SinglyLinkedList<int>() { 42 };
 
             var result = singleLinkedList.PopFirst();
 
@@ -352,7 +352,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopFirst_ListCountIsZero_WhenOnlyOneItemIsPopped()
         {
-            var singleLinkedList = new SingleLinkedList<int>() { 42 };
+            var singleLinkedList = new SinglyLinkedList<int>() { 42 };
 
             singleLinkedList.PopFirst();
 
@@ -362,7 +362,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopFirst_ListCountIs3_When4thItemIsPopped()
         {
-            var singleLinkedList = new SingleLinkedList<int>() { 42, 2, 1, 3 };
+            var singleLinkedList = new SinglyLinkedList<int>() { 42, 2, 1, 3 };
 
             singleLinkedList.PopFirst();
 
@@ -372,7 +372,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopFirst_ReturnsFirstItem_WhenListContainsMultipleItems()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.PopFirst();
 
@@ -382,7 +382,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopFirst_UpdatesHead_WhenListContainsMultipleItems()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             singleLinkedList.PopFirst();
 
@@ -392,7 +392,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopFirst_PeekFirstThrowsException_WhenDeletingItemAfterAddingIt()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             singleLinkedList.Add(5);
             singleLinkedList.PopFirst();
@@ -403,7 +403,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopFirst_ShallReturnsProperItem_AfterAddingAndRemovingOperations()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             singleLinkedList.Add(5);
             singleLinkedList.AddToFront(3);
@@ -419,7 +419,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopLast_ThrowsInvalidOperationException_WhenListIsEmpty()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             Assert.Throws<InvalidOperationException>(() => singleLinkedList.PopLast());
         }
@@ -427,7 +427,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopLast_ReturnsLastItem_WhenListContainsOneItem()
         {
-            var singleLinkedList = new SingleLinkedList<int>() { 42 };
+            var singleLinkedList = new SinglyLinkedList<int>() { 42 };
 
             var result = singleLinkedList.PopLast();
 
@@ -437,7 +437,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopLast_ListCountIsZero_WhenOnlyOneItemIsPopped()
         {
-            var singleLinkedList = new SingleLinkedList<int>() { 42 };
+            var singleLinkedList = new SinglyLinkedList<int>() { 42 };
 
             singleLinkedList.PopLast();
 
@@ -447,7 +447,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopLast_ListCountIs3_When4thItemIsPopped()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3, 4 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3, 4 };
 
             singleLinkedList.PopLast();
 
@@ -457,7 +457,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopLast_ReturnsLastItem_WhenListContainsMultipleItems()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.PopLast();
 
@@ -467,7 +467,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopLast_UpdatesTail_WhenListContainsMultipleItems()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             singleLinkedList.PopLast();
 
@@ -477,7 +477,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopLast_PeekLastThrowsException_WhenDeletingItemAfterAddingIt()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             singleLinkedList.Add(5);
             singleLinkedList.PopLast();
@@ -488,7 +488,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PopLast_ShallReturnsProperItem_AfterAddingAndRemovingOperations()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             singleLinkedList.Add(5);
             singleLinkedList.Add(3);
@@ -506,7 +506,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PeekFirst_ThrowsInvalidOperationException_WhenListIsEmpty()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             Assert.Throws<InvalidOperationException>(() => singleLinkedList.PeekFirst());
         }
@@ -514,7 +514,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PeekFirst_ReturnsFirstItem_WhenListContainsOneItem()
         {
-            var singleLinkedList = new SingleLinkedList<int>() { 42 };
+            var singleLinkedList = new SinglyLinkedList<int>() { 42 };
 
             var result = singleLinkedList.PeekFirst();
 
@@ -524,7 +524,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PeekFirst_ReturnsFirstItem_WhenListContainsMultipleItems()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.PeekFirst();
 
@@ -534,7 +534,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PeekFirst_CountIsUnchanged_WhenCalled()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             singleLinkedList.PeekFirst();
 
@@ -544,7 +544,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PeekFirst_ReturnsFirstItem_WhenListContainsStrings()
         {
-            var singleLinkedList = new SingleLinkedList<string> { "Hello", "World" };
+            var singleLinkedList = new SinglyLinkedList<string> { "Hello", "World" };
 
             var result = singleLinkedList.PeekFirst();
 
@@ -554,7 +554,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PeekFirst_DoesNotAffectList_WhenCalledMultipleTimes()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var firstItem1 = singleLinkedList.PeekFirst();
             var firstItem2 = singleLinkedList.PeekFirst();
@@ -570,7 +570,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PeekLast_ThrowsInvalidOperationException_WhenListIsEmpty()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             Assert.Throws<InvalidOperationException>(() => singleLinkedList.PeekLast());
         }
@@ -578,7 +578,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PeekLast_ReturnsLastItem_WhenListContainsOneItem()
         {
-            var singleLinkedList = new SingleLinkedList<int>() { 42 };
+            var singleLinkedList = new SinglyLinkedList<int>() { 42 };
 
             var result = singleLinkedList.PeekLast();
 
@@ -588,7 +588,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PeekLast_ReturnsLastItem_WhenListContainsMultipleItems()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.PeekLast();
 
@@ -598,7 +598,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PeekLast_CountIsUnchanged_WhenCalled()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             singleLinkedList.PeekLast();
 
@@ -608,7 +608,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PeekLast_ReturnsLastItem_WhenListContainsStrings()
         {
-            var singleLinkedList = new SingleLinkedList<string> { "Hello", "World" };
+            var singleLinkedList = new SinglyLinkedList<string> { "Hello", "World" };
 
             var result = singleLinkedList.PeekLast();
 
@@ -618,7 +618,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void PeekLast_DoesNotAffectList_WhenCalledMultipleTimes()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var lastItem1 = singleLinkedList.PeekLast();
             var lastItem2 = singleLinkedList.PeekLast();
@@ -634,7 +634,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void GetAt_ThrowsArgumentOutOfRangeException_WhenIndexIsNegative()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             Assert.Throws<ArgumentOutOfRangeException>(() => singleLinkedList.GetAt(-1));
         }
@@ -642,7 +642,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void GetAt_ThrowsArgumentOutOfRangeException_WhenIndexIsOutOfRange()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             Assert.Throws<ArgumentOutOfRangeException>(() => singleLinkedList.GetAt(3));
         }
@@ -650,7 +650,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void GetAt_ReturnsCorrectItem_WhenIndexIsValid()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.GetAt(1);
 
@@ -660,7 +660,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void GetAt_ReturnsFirstItem_WhenIndexIsZero()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.GetAt(0);
 
@@ -670,7 +670,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void GetAt_ReturnsLastItem_WhenIndexIsCountMinusOne()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.GetAt(2);
 
@@ -680,7 +680,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void GetAt_ReturnsCorrectItem_WhenListContainsStrings()
         {
-            var singleLinkedList = new SingleLinkedList<string> { "Hello", "World" };
+            var singleLinkedList = new SinglyLinkedList<string> { "Hello", "World" };
 
             var result = singleLinkedList.GetAt(1);
 
@@ -694,8 +694,8 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Merge_ThrowsArgumentNullException_WhenListIsNull()
         {
-            var list1 = new SingleLinkedList<int> { 1, 2, 3 };
-            SingleLinkedList<int> list2 = null!;
+            var list1 = new SinglyLinkedList<int> { 1, 2, 3 };
+            SinglyLinkedList<int> list2 = null!;
 
             Assert.Throws<ArgumentNullException>(() => list1.Merge(list2));
         }
@@ -703,8 +703,8 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Merge_ItemsInMergedListAreCorrect_WhenMeged()
         {
-            var list1 = new SingleLinkedList<int> { 1, 2, 3 };
-            var list2 = new SingleLinkedList<int> { 4, 5, 6 };
+            var list1 = new SinglyLinkedList<int> { 1, 2, 3 };
+            var list2 = new SinglyLinkedList<int> { 4, 5, 6 };
 
             list1.Merge(list2);
 
@@ -718,8 +718,8 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Merge_CountStaysTheSame_WhenListToMergeIsEmpty()
         {
-            var list1 = new SingleLinkedList<int> { 1, 2, 3 };
-            var list2 = new SingleLinkedList<int>();
+            var list1 = new SinglyLinkedList<int> { 1, 2, 3 };
+            var list2 = new SinglyLinkedList<int>();
 
             list1.Merge(list2);
 
@@ -729,8 +729,8 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Merge_ItemsRemainSame_WhenSecondListIsEmpty()
         {
-            var list1 = new SingleLinkedList<int> { 1, 2, 3 };
-            var list2 = new SingleLinkedList<int>();
+            var list1 = new SinglyLinkedList<int> { 1, 2, 3 };
+            var list2 = new SinglyLinkedList<int>();
 
             list1.Merge(list2);
 
@@ -742,8 +742,8 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Merge_MergesSingleElementListIntoNonEmptyList()
         {
-            var list1 = new SingleLinkedList<int> { 1, 2, 3 };
-            var list2 = new SingleLinkedList<int> { 4 };
+            var list1 = new SinglyLinkedList<int> { 1, 2, 3 };
+            var list2 = new SinglyLinkedList<int> { 4 };
 
             list1.Merge(list2);
 
@@ -753,8 +753,8 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Merge_FirstItemShouldRemainTheSame_WhenMergingSingleElementList()
         {
-            var list1 = new SingleLinkedList<int> { 1, 2, 3 };
-            var list2 = new SingleLinkedList<int> { 4 };
+            var list1 = new SinglyLinkedList<int> { 1, 2, 3 };
+            var list2 = new SinglyLinkedList<int> { 4 };
 
             list1.Merge(list2);
 
@@ -764,8 +764,8 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Merge_LastItemShouldBeLastOfMergedList_WhenMergingMultipleItems()
         {
-            var list1 = new SingleLinkedList<int> { 1, 2 };
-            var list2 = new SingleLinkedList<int> { 3, 4, 5 };
+            var list1 = new SinglyLinkedList<int> { 1, 2 };
+            var list2 = new SinglyLinkedList<int> { 3, 4, 5 };
 
             list1.Merge(list2);
 
@@ -775,8 +775,8 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Merge_MergesProperlyIntoEmptyList_AfterMerge()
         {
-            var list1 = new SingleLinkedList<int>();
-            var list2 = new SingleLinkedList<int> { 1, 2, 3 };
+            var list1 = new SinglyLinkedList<int>();
+            var list2 = new SinglyLinkedList<int> { 1, 2, 3 };
 
             list1.Merge(list2);
 
@@ -786,8 +786,8 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Merge_FirstItemShouldBeFirstOfMergedList_WhenMergingMultipleItems()
         {
-            var list1 = new SingleLinkedList<int>();
-            var list2 = new SingleLinkedList<int> { 1, 2, 3 };
+            var list1 = new SinglyLinkedList<int>();
+            var list2 = new SinglyLinkedList<int> { 1, 2, 3 };
 
             list1.Merge(list2);
 
@@ -797,8 +797,8 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Merge_ListToMergeIsCleared_AfterMErge()
         {
-            var list1 = new SingleLinkedList<int> { 1, 2, 3 };
-            var list2 = new SingleLinkedList<int> { 4, 5, 6 };
+            var list1 = new SinglyLinkedList<int> { 1, 2, 3 };
+            var list2 = new SinglyLinkedList<int> { 4, 5, 6 };
 
             list1.Merge(list2);
 
@@ -811,7 +811,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Clear_SetsCountToZero_AfterClearingList()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             singleLinkedList.Clear();
 
@@ -821,7 +821,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Clear_SetsHeadToNull_AfterClearingList()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             singleLinkedList.Clear();
 
@@ -829,7 +829,7 @@ namespace Single_Linked_List_Tests
         }
         public void Clear_SetsTailToNull_AfterClearingList()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             singleLinkedList.Clear();
 
@@ -840,7 +840,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Clear_EmptyList_AfterClearingAnAlreadyEmptyList()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             singleLinkedList.Clear();
 
@@ -852,7 +852,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Contains_ReturnsFalse_WhenListIsEmpty()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
 
             var result = singleLinkedList.Contains(5);
 
@@ -862,7 +862,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Contains_ReturnsTrue_WhenItemExistsInList()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.Contains(2);
 
@@ -872,7 +872,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Contains_ReturnsFalse_WhenItemDoesNotExistInList()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.Contains(4);
 
@@ -882,7 +882,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Contains_ReturnsTrue_WhenCheckingForItemWhichIsFirstInCollection()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.Contains(1);
 
@@ -892,7 +892,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Contains_ReturnsTrue_WhenCheckingForItemWhichIsLastInCollection()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             var result = singleLinkedList.Contains(3);
 
@@ -902,7 +902,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Contains_ReturnsTrue_WhenListContainsDuplicateItems()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 2, 3 };
 
             var result = singleLinkedList.Contains(2);
 
@@ -912,7 +912,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void Contains_ReturnsTrue_WhenCheckingForNullInNullableList()
         {
-            var singleLinkedList = new SingleLinkedList<int?> { 1, 2, null, 3 };
+            var singleLinkedList = new SinglyLinkedList<int?> { 1, 2, null, 3 };
 
             var result = singleLinkedList.Contains(null);
 
@@ -924,7 +924,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void CopyTo_ThrowsArgumentNullException_WhenArrayIsNull()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             Assert.Throws<ArgumentNullException>(() => singleLinkedList.CopyTo(null, 0));
         }
@@ -932,7 +932,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void CopyTo_ThrowsArgumentOutOfRangeException_WhenArrayIndexIsNegative()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             Assert.Throws<ArgumentOutOfRangeException>(() => singleLinkedList.CopyTo(new int[3], -1));
         }
@@ -940,7 +940,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void CopyTo_ThrowsArgumentException_WhenInsufficientSpaceInArray()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
 
             Assert.Throws<ArgumentException>(() => singleLinkedList.CopyTo(new int[2], 0));
         }
@@ -948,7 +948,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void CopyTo_CopiesItemsToArray_WhenArrayHasSufficientSpace()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
             var array = new int[5];
 
             singleLinkedList.CopyTo(array, 1);
@@ -961,7 +961,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void CopyTo_CopiesItemsToArray_WhenStartingAtArrayIndexZero()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
             var array = new int[3];
 
             singleLinkedList.CopyTo(array, 0);
@@ -974,7 +974,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void CopyTo_DoesNotOverwriteArrayItems_WhenArrayIndexIsGreaterThanZero()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
             var array = new int[5] { 0, 0, 0, 0, 0 };
 
             singleLinkedList.CopyTo(array, 2);
@@ -989,7 +989,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void CopyTo_CopiesItemsCorrectly_WhenListContainsNullables()
         {
-            var singleLinkedList = new SingleLinkedList<int?> { 1, null, 3 };
+            var singleLinkedList = new SinglyLinkedList<int?> { 1, null, 3 };
             var array = new int?[3];
 
             singleLinkedList.CopyTo(array, 0);
@@ -1004,7 +1004,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void GetEnumerator_ReturnsItemsInOrder_WhenListContainsMultipleItems()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 1, 2, 3 };
+            var singleLinkedList = new SinglyLinkedList<int> { 1, 2, 3 };
             var enumeratedItems = new List<int>();
 
             foreach (var item in singleLinkedList)
@@ -1018,7 +1018,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void GetEnumerator_ReturnsSingleItem_WhenListContainsOneItem()
         {
-            var singleLinkedList = new SingleLinkedList<int> { 42 };
+            var singleLinkedList = new SinglyLinkedList<int> { 42 };
             var enumeratedItems = new List<int>();
 
             foreach (var item in singleLinkedList)
@@ -1032,7 +1032,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void GetEnumerator_ReturnsNoItems_WhenListIsEmpty()
         {
-            var singleLinkedList = new SingleLinkedList<int>();
+            var singleLinkedList = new SinglyLinkedList<int>();
             var enumeratedItems = new List<int>();
 
             foreach (var item in singleLinkedList)
@@ -1046,7 +1046,7 @@ namespace Single_Linked_List_Tests
         [Test]
         public void GetEnumerator_EnumeratesCorrectly_WhenListContainsNullables()
         {
-            var singleLinkedList = new SingleLinkedList<int?> { 1, null, 3 };
+            var singleLinkedList = new SinglyLinkedList<int?> { 1, null, 3 };
             var enumeratedItems = new List<int?>();
 
             foreach (var item in singleLinkedList)
