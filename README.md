@@ -1,4 +1,4 @@
-# SingleLinkedList<T>
+# SinglyLinkedList<T>
 
 This repository contains a C# implementation of a generic singly linked list, `SingleLinkedList<T>`. It is designed to provide efficient, dynamic list manipulation with support for adding, removing, peeking, and other utility operations.
 
